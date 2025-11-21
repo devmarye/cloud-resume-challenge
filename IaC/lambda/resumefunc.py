@@ -2,8 +2,6 @@ import json
 import boto3
 from decimal import Decimal
 
-dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-table = dynamodb.Table("MyResumeViewCount")
 
 def decimal_default(obj):
     if isinstance(obj, Decimal):
@@ -11,6 +9,9 @@ def decimal_default(obj):
 
 def lambda_handler(event, context):
     print("Received Event:", json.dumps(event, indent=2))  
+    
+    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+    table = dynamodb.Table("MyResumeViewCount")
 
     try:
         http_method = event.get("httpMethod") or event.get("requestContext", {}).get("http", {}).get("method")
