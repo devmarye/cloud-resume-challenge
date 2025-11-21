@@ -5,7 +5,7 @@ resource "aws_lambda_function" "myfunc" {
   role             = aws_iam_role.iam_for_lambda.arn
   handler          =  "resumefunc.lambda_handler"
   runtime          = "python3.8"
-  timeout          = 10  # Increase timeout to 10 seconds
+  timeout          = 10
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
