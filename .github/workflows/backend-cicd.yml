@@ -31,7 +31,6 @@ jobs:
     - name: Run Python tests
       run: pytest IaC/lambda
 
-    # ✅ This step configures AWS credentials for Terraform and boto3
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:

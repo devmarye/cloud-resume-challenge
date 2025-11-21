@@ -36,7 +36,7 @@ def test_lambda_handler_get():
 
 @mock_aws
 def test_invalid_method():
-    # Setup mock table
+
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     dynamodb.create_table(
         TableName="MyResumeViewCount",
